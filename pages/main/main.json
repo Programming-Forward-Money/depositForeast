@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "disableScroll":true,
+  "navigationBarTitleText": "未来储蓄预测"
+}

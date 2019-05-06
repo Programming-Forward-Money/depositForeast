@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view style="width:100%;height:50px;background-color:#09BB07"></view>
+<view style="padding:10px">
+  <form bindsubmit='addProject'>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">项目名称</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input name="name" class="weui-input" placeholder="请输入项目名称"/>
+            </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">项目周期</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input name="cycle" class="weui-input" type="number" placeholder="请输入月数" value="1"/>
+            </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">项目开始</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                <view class="weui-input">{{date}}</view>
+                <input name="cycleBase" class="weui-input" hidden placeholder="请选择日期" value="{{date}}"/>
+              </picker>
+            </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">项目收支</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input name="mny" class="weui-input" placeholder="请输入项目收支金额" type="number"/>
+            </view>
+        </view>
+      </view>
+      <button class='weui-btn btn1'  type="primary" form-type='submit'>添加项目</button>
+  </form>
+
+  <view wx:if="{{projects.length >= 1}}">
+    <view class="weui-cells__title">已有项目</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" wx:for-items="{{projects}}" wx:for-item="item" wx:for-index="index">
+            <view class="weui-cell__hd">
+            <view class="weui-label">{{item.name}}</view></view>
+            <view class="weui-cell__bd">
+              <span wx:if="{{item.cycle > 1}}">{{item.cycleBase}}/{{item.cycle}}月·次/</span>
+              {{item.mny}}RMB
+            </view>
+            <view class="weui-cell__ft">
+              <view class="weui-vcode-btn" bindtap='remove' data-index="{{index}}">删除</view>
+            </view>
+        </view>
+    </view>
+
+    <button class='weui-btn btn1' type="primary" style="background-color: #5d8edb" bindtap='goto'>查看结果</button>
+  </view>
+</view>
