@@ -3,7 +3,17 @@
 Page({
   data: {
     projects : [],
-    date: "2019-01-01"
+    date: "2019-01-01",
+    countryCodes: ["1个月", "2个月", "3个月", "4个月"],
+    countryCodeIndex: 0,
+    checkboxItems: [
+      { name: '支出', value: '0', checked: true }
+    ],
+  },
+  bindCountryCodeChange: function (e) {
+    this.setData({
+      countryCodeIndex: e.detail.value
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -33,11 +43,13 @@ Page({
       this.setData({ "projects":this.data.projects})
       console.log(this.data.projects)
     }else{
-      wx.showToast({
-        title: '请填写值',
-        icon: 'loading',
-        duration: 1000
-      })
+      wx.showModal({
+        content: '缺少输入值',
+        showCancel: false,
+        success: function (res) {
+          
+        }
+      });
     }    
   },
   remove : function(e){
