@@ -75,7 +75,9 @@ Page({
   toggle:function(){
     if(this.data.curType == 0){
       this.setData({ "curType": 1,"placeholder":"请输入支出金额","btnname":"切为收入"})
-      this.setData({ "pmny": -this.data.pmny })
+      if (this.data.pmny) {
+        this.setData({ "pmny": -this.data.pmny })
+      }
     }else{
       this.setData({ "curType": 0, "placeholder": "请输入收入金额", "btnname": "切为支出" })
       if (this.data.pmny){
