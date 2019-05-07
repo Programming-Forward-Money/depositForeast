@@ -60,7 +60,7 @@
             <view class="weui-label">{{item.name}}</view></view>
             <view class="weui-cell__bd">
               <span wx:if="{{item.cycle > 1}}">{{item.cycleBase}}/{{item.cycle}}月·次/</span>
-              {{item.mny}}RMB
+              ¥{{item.mny}}<span wx:if="{{item.cycle <= 1}}">每月</span>
             </view>
             <view class="weui-cell__ft">
               <view class="weui-vcode-btn" bindtap='remove' data-index="{{index}}">删除</view>
