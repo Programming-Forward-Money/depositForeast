@@ -9,7 +9,7 @@ Page({
     btnname:"切为支出",
     projects : [],
     date: "2019-01-01",
-    countryCodes: ["1个月", "2个月", "3个月", "4个月"],
+    countryCodes: ["1个月", "2个月", "3个月", "4个月", "5个月", "6个月", "7个月", "8个月", "9个月", "10个月", "11个月", "12个月"],
     countryCodeIndex: 0,
     checkboxItems: [
       { name: '支出', value: '0', checked: true }
