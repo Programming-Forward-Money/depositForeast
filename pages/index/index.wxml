@@ -7,7 +7,7 @@
                 <view class="weui-label">项目名称</view>
             </view>
             <view class="weui-cell__bd">
-                <input name="name" class="weui-input" bindtap='clear' placeholder="请输入项目名称"/>
+                <input name="name" class="weui-input" placeholder="请输入项目名称" value='{{pname}}'/>
             </view>
         </view>
       </view>
@@ -25,12 +25,6 @@
               </view>
           </view>
         </view>
-
-        
-            <!-- <view class="weui-cell__bd">
-                <input name="cycle" class="weui-input" type="number" placeholder="请输入月数" value="1"/>
-            </view>
-        </view> -->
       </view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
@@ -48,10 +42,10 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd">
-                <view class="weui-label weui-vcode-btn" style='width:90px;margin-right:15px;border-left:0px;padding:0px;margin-left:0px;border-right:1px solid #e5e5e5'>切为支出</view>
+                <view class="weui-label weui-vcode-btn" style='width:90px;margin-right:15px;border-left:0px;padding:0px;margin-left:0px;border-right:1px solid #e5e5e5' bindtap='toggle'>{{btnname}}</view>
             </view>
             <view class="weui-cell__bd">
-                <input name="mny" class="weui-input" placeholder="请输入收入金额" type="number"/>
+                <input name="mny" class="weui-input" placeholder="{{placeholder}}" type="number" value="{{pmny}}" bindinput='changeinput'/>
             </view>
         </view>
       </view>
