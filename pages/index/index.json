@@ -4,5 +4,6 @@
   "backgroundColor":"#888888",
   "pageOrientation":"auto",
   "navigationBarBackgroundColor":"#888",
-  "navigationBarTextStyle":"white"
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh":true
 }

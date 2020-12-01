@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view style="padding:10px">
+<view style="padding:10px 8px 0px 8px">
   <form bindsubmit='addProject'>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
@@ -21,7 +21,7 @@
                   <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}" style="width: 93%;">
                       <view class="weui-select" style="width:100%;padding-left:0px">{{countryCodes[countryCodeIndex]}}</view>
                   </picker>
-                  <input name="cycle" hidden value="{{countryCodeIndex+1}}"></input>
+                  <input name="cycle" hidden value="{{countryCodeIndex}}"></input>
               </view>
           </view>
         </view>
@@ -49,7 +49,7 @@
             </view>
         </view>
       </view>
-      <button class='weui-btn btn1'  type="primary" form-type='submit'>添加项目</button>
+      <button class='weui-btn'  type="primary" form-type='submit'>添加项目</button>
   </form>
 
   <view wx:if="{{projects.length >= 1}}">
@@ -59,8 +59,8 @@
             <view class="weui-cell__hd">
             <view class="weui-label">{{item.name}}</view></view>
             <view class="weui-cell__bd">
-              <span wx:if="{{item.cycle > 1}}">{{item.cycleBase}}/{{item.cycle}}月·次/</span>
-              ¥{{item.mny}}<span wx:if="{{item.cycle <= 1}}">每月</span>
+              <span wx:if="{{item.cycle > 1}}">¥{{item.mny}}/每{{item.cycle}}月<view style="font-size:0.5em" >{{item.cycleBase}}开始</view></span>
+              <span wx:if="{{item.cycle <= 1}}">¥{{item.mny}}/月</span>
             </view>
             <view class="weui-cell__ft">
               <view class="weui-vcode-btn" bindtap='remove' data-index="{{index}}">删除</view>
@@ -68,6 +68,10 @@
         </view>
     </view>
 
-    <button class='weui-btn btn1' type="primary" style="background-color: #5d8edb" bindtap='goto'>查看结果</button>
+    <view>
+      <!-- <button class='weui-btn' type="default" style="display:inline-block;width:45%" bindtap="saveList">保存快照</button> -->
+      <!-- <view style="display:inline-block;width:8%" /> -->
+      <button class='weui-btn' type="primary" style="background-color: #5d8edb;margin-top:10px" bindtap='goto'>查看结果</button>
+    </view>
   </view>
 </view>
